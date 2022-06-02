@@ -1,4 +1,4 @@
-description: A simple 'no-op' state that returns 'Hello world!'
+description: A simple 'no-op' state that returns 'Hello world!' new
 states:
 - id: helloworld
   type: noop
