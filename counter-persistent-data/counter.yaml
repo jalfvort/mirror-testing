@@ -7,9 +7,9 @@ states:
     type: getter 
     transition: counter-set
     variables:
-    - key: ExampleVariableCounter
+    - key: counter
       scope: workflow
-    transform: 'jq(. += {"newCounter": (.var.ExampleVariableCounter + 1)})'
+    transform: 'jq(. += {"newCounter": (.var.counter + 1)})'
 
   #
   # Set workflow counter variable
@@ -17,6 +17,6 @@ states:
   - id: counter-set
     type: setter
     variables:
-      - key: ExampleVariableCounter
+      - key: counter
         scope: workflow 
         value: 'jq(.newCounter)'
