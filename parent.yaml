@@ -1,0 +1,13 @@
+description: A simple 'action' state that sends a get request
+functions:
+- id: get
+  workflow: child/helloworld
+  type: subflow
+states:
+- id: getter 
+  type: action
+  action:
+    function: get
+    input: 
+      method: "GET"
+      url: "https://jsonplaceholder.typicode.com/todos/1"
