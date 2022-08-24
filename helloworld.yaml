@@ -1,6 +1,23 @@
-description: A simple 'no-op' state that returns 'Hello world!' new
+functions:
+- id: run
+  image: rrc-replace-me/python:panda
+  type: knative-workflow
 states:
-- id: helloworld
-  type: noop
+- id: a
+  type: getter
+  transition: python-panda
+  variables:
+  - key: panda.py
+    scope: workflow
+- id: python-panda
+  type: action
   transform:
-    result: Hello world!
+    dataFrame: "jq(.return)"
+  action:
+    function: run
+    input:
+      output: df-example-out
+      script:
+         name: simple
+         data: 'jq(.var."panda.py")'
+         type: base64
