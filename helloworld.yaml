@@ -1,6 +1,7 @@
 description: A simple 'no-op' state that returns 'Hello world!' new
 states:
 - id: helloworld
-  type: noop
+  typ
+   e: noop
   transform:
     result: Hello world!
